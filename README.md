@@ -393,7 +393,9 @@ Ce projet est open source et disponible pour usage personnel.
 
 ## 👨‍💻 Auteur
 
-**Jonas Makeke**
+**Jonas Makeke** © Jonas Makeke — All rights reserved.
+This project is public for viewing purposes only.
+
 
 - Développeur Full Stack
 - Créateur de contenu
