@@ -1,17 +1,17 @@
 // Theme Toggle - Initialize immediately and on DOM ready
-(function() {
+(function () {
     'use strict';
-    
+
     const html = document.documentElement;
-    
+
     // Function to update theme icon
     function updateThemeIcon(theme) {
         const themeToggle = document.getElementById('themeToggle');
         if (!themeToggle) return;
-        
+
         const themeIcon = themeToggle.querySelector('.theme-icon');
         if (!themeIcon) return;
-        
+
         if (theme === 'dark') {
             // Sun icon for dark mode (click to go to light)
             themeIcon.innerHTML = '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>';
@@ -20,33 +20,33 @@
             themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
         }
     }
-    
+
     // Function to apply theme
     function applyTheme(theme) {
         html.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
         updateThemeIcon(theme);
     }
-    
+
     // Function to toggle theme
     function toggleTheme() {
         const currentTheme = html.getAttribute('data-theme') || 'light';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         applyTheme(newTheme);
     }
-    
+
     // Initialize theme on page load
     function initTheme() {
         const savedTheme = localStorage.getItem('theme') || 'light';
         applyTheme(savedTheme);
-        
+
         // Add click event listener to theme toggle button
         const themeToggle = document.getElementById('themeToggle');
         if (themeToggle) {
             themeToggle.addEventListener('click', toggleTheme);
         }
     }
-    
+
     // Run initialization
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initTheme);
@@ -129,7 +129,7 @@ let isDeleting = false;
 
 function typeText() {
     const currentPhrase = phrases[phraseIndex];
-    
+
     if (isDeleting) {
         typingText.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
@@ -198,29 +198,129 @@ skillBars.forEach(bar => {
     skillObserver.observe(bar);
 });
 
-// Contact Form Handling
+// Statistics Animation
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const target = parseInt(entry.target.getAttribute('data-target'));
+            const suffix = entry.target.getAttribute('data-suffix');
+            const duration = 2000; // 2 seconds
+            const startTime = performance.now();
+            const startValue = 0;
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function (easeOutQuad)
+                const ease = 1 - Math.pow(1 - progress, 2);
+
+                const current = Math.floor(startValue + (target - startValue) * ease);
+                entry.target.textContent = current + suffix;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    entry.target.textContent = target + suffix;
+                }
+            }
+
+            requestAnimationFrame(update);
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-number').forEach(stat => {
+    statsObserver.observe(stat);
+});
+
+// Premium Toast Notification
+let toastTimeout;
+
+function showToast({ title, message }) {
+    let toast = document.querySelector('.toast');
+
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerHTML = `
+            <div class="toast-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                </svg>
+            </div>
+            <div class="toast-content">
+                <div class="toast-title"></div>
+                <div class="toast-message"></div>
+            </div>
+            <button class="toast-close" aria-label="Close notification">&times;</button>
+        `;
+        document.body.appendChild(toast);
+
+        const closeBtn = toast.querySelector('.toast-close');
+        closeBtn.addEventListener('click', () => {
+            toast.classList.remove('toast--visible');
+            if (toastTimeout) clearTimeout(toastTimeout);
+        });
+    }
+
+    const titleEl = toast.querySelector('.toast-title');
+    const messageEl = toast.querySelector('.toast-message');
+
+    titleEl.textContent = title;
+    messageEl.textContent = message;
+
+    toast.classList.add('toast--visible');
+
+    if (toastTimeout) clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+        toast.classList.remove('toast--visible');
+    }, 4000);
+}
+
+// Contact Form Handling (Formspree)
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    // Here you would typically send the form data to a server
-    // For now, we'll just show an alert
-    alert(`Thank you for your message, ${name}! I'll get back to you at ${email} soon.`);
-    
-    // Reset form
-    contactForm.reset();
-    
-    // In a real application, you would:
-    // 1. Send data to your backend API
-    // 2. Use a service like Formspree, EmailJS, or similar
-    // 3. Handle success/error states with proper UI feedback
-});
+if (contactForm) {
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjgabayp';
+
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        try {
+            const response = await fetch(FORMSPREE_ENDPOINT, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                showToast({
+                    title: 'Message envoyé',
+                    message: 'Merci ! Ton message a bien été transmis à Jonas.'
+                });
+                contactForm.reset();
+            } else {
+                showToast({
+                    title: "Envoi impossible",
+                    message: "Une erreur est survenue. Tu peux aussi écrire directement à : jmakeke6@mail.com"
+                });
+            }
+        } catch (error) {
+            showToast({
+                title: "Connexion échouée",
+                message: "Impossible de contacter le serveur. Écris directement à : jmakeke6@mail.com"
+            });
+        }
+    });
+}
 
 // Scroll to Top Button (optional enhancement)
 let scrollTopBtn;
@@ -248,14 +348,14 @@ function createScrollTopButton() {
         z-index: 999;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     `;
-    
+
     scrollTopBtn.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
-    
+
     document.body.appendChild(scrollTopBtn);
 }
 
@@ -292,9 +392,9 @@ if (typeof debouncedUpdateActiveNav === 'undefined') {
 }
 
 // Carousel Gallery
-(function() {
+(function () {
     'use strict';
-    
+
     const carouselTrack = document.getElementById('carouselTrack');
     const carouselSlides = document.querySelectorAll('.carousel-slide');
     const carouselPrev = document.getElementById('carouselPrev');
@@ -427,21 +527,21 @@ if (typeof debouncedUpdateActiveNav === 'undefined') {
 })();
 
 // CV Download Functionality - Simple enhancement (doesn't block natural behavior)
-(function() {
+(function () {
     'use strict';
-    
+
     const downloadCVBtn = document.getElementById('downloadCV');
-    
+
     if (downloadCVBtn) {
         // Only enhance, don't prevent default behavior
-        downloadCVBtn.addEventListener('click', function(e) {
+        downloadCVBtn.addEventListener('click', function (e) {
             // Let the browser handle the download naturally first
             // The download attribute should work
-            
+
             // Optional enhancement: try fetch method for better control
             const cvFileName = './Jonas Makeke cv weB3.pdf';
             const downloadName = 'Jonas Makeke cv.pdf';
-            
+
             // Try fetch as enhancement (non-blocking)
             fetch(cvFileName)
                 .then(response => {

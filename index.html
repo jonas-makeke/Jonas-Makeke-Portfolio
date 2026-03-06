@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +12,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         // Apply theme immediately to prevent flash
-        (function() {
+        (function () {
             const theme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <a href="#home">J-Makeke</a>
+                <a href="#home">
+                    <span class="nav-brand-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <!-- Écran -->
+                            <rect x="3" y="4" width="18" height="12" rx="2" ry="2"></rect>
+                            <!-- </> -->
+                            <polyline points="10 9 8 11 10 13"></polyline>
+                            <polyline points="14 9 16 11 14 13"></polyline>
+                            <line x1="11.5" y1="14.5" x2="12.5" y2="14.5"></line>
+                            <!-- Base -->
+                            <line x1="8" y1="20" x2="16" y2="20"></line>
+                            <line x1="10" y1="18" x2="14" y2="18"></line>
+                        </svg>
+                    </span>
+                    <span class="nav-brand-text">J-Makeke</span>
+                </a>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
@@ -30,12 +47,13 @@
                 <li><a href="#methodology" class="nav-link">Methodology</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#articles" class="nav-link">Articles</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li><a href="#social" class="nav-link">Social</a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
@@ -61,23 +79,28 @@
                         <span class="cursor">|</span>
                     </p>
                     <p class="hero-description">
-                        I transform complex problems into elegant solutions. Specialized in building scalable, maintainable systems that deliver real business value.
+                        I transform the complexity of Web3 into practical and educational technical solutions. 
+                        As a Junior Web3 Developer and blockchain content creator, 
+                        I design scalable decentralized tools while making blockchain technologies more accessible to communities.
                     </p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                             </svg>
                             View My Work
                         </a>
                         <a href="#contact" class="btn btn-secondary">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                             </svg>
-                            Get In Touch 
+                            Get In Touch
                         </a>
                         <a href="assets/Jonas-Makeke-CV.pdf" id="downloadCV" download class="btn btn-outline">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                 <polyline points="7 10 12 15 17 10"></polyline>
                                 <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -107,39 +130,48 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        I'm a problem-solver at heart, specializing in turning complex challenges into elegant, scalable solutions. 
-                        My approach is methodical yet creative, combining analytical thinking with technical expertise to deliver 
-                        systems that not only work but exceed expectations.
+                        I am a Junior Web3 Developer passionate about blockchain and decentralized technologies. 
+                        I specialize in transforming complex Web3 concepts into practical, scalable, and accessible solutions. 
+                        My approach combines analytical thinking, technical experimentation, and continuous learning to build systems 
+                        that are both functional and impactful.
                     </p>
                     <p>
-                        Every project starts with understanding the core problem, then architecting solutions that are maintainable, 
-                        performant, and future-proof. I believe in writing clean code, following best practices, and continuously 
-                        learning to stay ahead of the curve.
+                        Each project begins with understanding the underlying blockchain logic and user needs,
+                        then designing decentralized applications that are secure, maintainable, and community-oriented. 
+                        I focus on writing clean, structured code while improving my expertise in smart contracts, front-end integration, and Web3 architecture.
+                    </p>
+                    <p>
+                        Beyond development, I actively create educational content to simplify blockchain technologies and contribute to community growth and adoption.
                     </p>
                     <div class="about-stats">
                         <div class="stat-item">
-                            <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
                                 <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                                 <line x1="12" y1="22.08" x2="12" y2="12"></line>
                             </svg>
-                            <div class="stat-number">50+</div>
+                            <div class="stat-number" data-target="50" data-suffix="+">50+</div>
                             <div class="stat-label">Projects Solved</div>
                         </div>
                         <div class="stat-item">
-                            <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
-                            <div class="stat-number">3+</div>
+                            <div class="stat-number" data-target="3" data-suffix="+">3+</div>
                             <div class="stat-label">Years Experience</div>
                         </div>
                         <div class="stat-item">
-                            <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
                             </svg>
-                            <div class="stat-number">100%</div>
+                            <div class="stat-number" data-target="100" data-suffix="%">100%</div>
                             <div class="stat-label">Success Rate</div>
                         </div>
                     </div>
@@ -169,9 +201,12 @@
                                 <span class="tech-icon">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
                                         <circle cx="12" cy="12" r="2.5"></circle>
-                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor" stroke-width="1.4"></ellipse>
-                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(60 12 12)"></ellipse>
-                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(120 12 12)"></ellipse>
+                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor"
+                                            stroke-width="1.4"></ellipse>
+                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor"
+                                            stroke-width="1.4" transform="rotate(60 12 12)"></ellipse>
+                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor"
+                                            stroke-width="1.4" transform="rotate(120 12 12)"></ellipse>
                                     </svg>
                                 </span>
                                 React
@@ -180,7 +215,8 @@
                                 <span class="tech-icon">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
                                         <rect x="4" y="4" width="16" height="16" rx="3" ry="3"></rect>
-                                        <path d="M10 9v6.5a2.5 2.5 0 0 0 4.5 1.5" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+                                        <path d="M10 9v6.5a2.5 2.5 0 0 0 4.5 1.5" fill="none" stroke="white"
+                                            stroke-width="1.5" stroke-linecap="round"></path>
                                     </svg>
                                 </span>
                                 TypeScript
@@ -189,7 +225,8 @@
                                 <span class="tech-icon">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M4 3h16l-1.5 14.5L12 21l-6.5-3.5L4 3z"></path>
-                                        <path d="M8 7h8M9 11h6M10 15h4" stroke="white" stroke-width="1.2" stroke-linecap="round"></path>
+                                        <path d="M8 7h8M9 11h6M10 15h4" stroke="white" stroke-width="1.2"
+                                            stroke-linecap="round"></path>
                                     </svg>
                                 </span>
                                 CSS
@@ -197,7 +234,8 @@
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                     <polyline points="15 3 21 3 21 9"></polyline>
                                     <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -205,8 +243,11 @@
                                 Live Demo
                             </a>
                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
                                 </svg>
                                 GitHub
                             </a>
@@ -245,7 +286,9 @@
                             <span class="tag tech-mongodb">
                                 <span class="tech-icon">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z">
+                                        </path>
                                     </svg>
                                 </span>
                                 MongoDB
@@ -253,7 +296,8 @@
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                     <polyline points="15 3 21 3 21 9"></polyline>
                                     <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -261,8 +305,11 @@
                                 Live Demo
                             </a>
                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
                                 </svg>
                                 GitHub
                             </a>
@@ -315,7 +362,8 @@
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                     <polyline points="15 3 21 3 21 9"></polyline>
                                     <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -323,8 +371,11 @@
                                 Live Demo
                             </a>
                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
                                 </svg>
                                 GitHub
                             </a>
@@ -342,19 +393,24 @@
             <div class="methodology-grid">
                 <div class="method-card">
                     <div class="method-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <line x1="12" y1="16" x2="12" y2="12"></line>
                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
                         </svg>
                     </div>
                     <h3 class="method-title">Analyze</h3>
-                    <p class="method-description">Deep dive into the problem space, understanding constraints, requirements, and stakeholder needs.</p>
+                    <p class="method-description">Deep dive into the problem space, understanding constraints,
+                        requirements, and stakeholder needs.</p>
                 </div>
                 <div class="method-card">
                     <div class="method-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
                             <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
                             <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
                             <polyline points="21 12 16.5 9.4 16.5 14.6"></polyline>
@@ -363,27 +419,32 @@
                         </svg>
                     </div>
                     <h3 class="method-title">Design</h3>
-                    <p class="method-description">Architect robust solutions with scalability, maintainability, and performance in mind.</p>
+                    <p class="method-description">Architect robust solutions with scalability, maintainability, and
+                        performance in mind.</p>
                 </div>
                 <div class="method-card">
                     <div class="method-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="16 18 22 12 16 6"></polyline>
                             <polyline points="8 6 2 12 8 18"></polyline>
                         </svg>
                     </div>
                     <h3 class="method-title">Implement</h3>
-                    <p class="method-description">Build with clean code, following best practices, testing thoroughly, and iterating based on feedback.</p>
+                    <p class="method-description">Build with clean code, following best practices, testing thoroughly,
+                        and iterating based on feedback.</p>
                 </div>
                 <div class="method-card">
                     <div class="method-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <polyline points="22 4 12 14.01 9 11.01"></polyline>
                         </svg>
                     </div>
                     <h3 class="method-title">Optimize</h3>
-                    <p class="method-description">Continuously monitor, measure, and improve solutions to ensure they deliver maximum value.</p>
+                    <p class="method-description">Continuously monitor, measure, and improve solutions to ensure they
+                        deliver maximum value.</p>
                 </div>
             </div>
         </div>
@@ -401,8 +462,10 @@
                             <span class="skill-name tech-css">
                                 <span class="skill-icon">
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M4 3h16l-1.5 14.5L12 21l-6.5-3.5L4 3z" fill="none" stroke="currentColor" stroke-width="1.6"></path>
-                                        <path d="M8 7h8M9 11h6M10 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                                        <path d="M4 3h16l-1.5 14.5L12 21l-6.5-3.5L4 3z" fill="none"
+                                            stroke="currentColor" stroke-width="1.6"></path>
+                                        <path d="M8 7h8M9 11h6M10 15h4" stroke="currentColor" stroke-width="1.6"
+                                            stroke-linecap="round"></path>
                                     </svg>
                                 </span>
                                 HTML/CSS
@@ -415,8 +478,10 @@
                             <span class="skill-name tech-javascript">
                                 <span class="skill-icon">
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <rect x="4" y="4" width="16" height="16" rx="3" ry="3" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
-                                        <path d="M10 9v6.5a2.5 2.5 0 0 0 4.5 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                                        <rect x="4" y="4" width="16" height="16" rx="3" ry="3" fill="none"
+                                            stroke="currentColor" stroke-width="1.6"></rect>
+                                        <path d="M10 9v6.5a2.5 2.5 0 0 0 4.5 1.5" stroke="currentColor"
+                                            stroke-width="1.6" stroke-linecap="round"></path>
                                     </svg>
                                 </span>
                                 JavaScript
@@ -430,9 +495,12 @@
                                 <span class="skill-icon">
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <circle cx="12" cy="12" r="2.5" fill="currentColor"></circle>
-                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor" stroke-width="1.4"></ellipse>
-                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(60 12 12)"></ellipse>
-                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(120 12 12)"></ellipse>
+                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor"
+                                            stroke-width="1.4"></ellipse>
+                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor"
+                                            stroke-width="1.4" transform="rotate(60 12 12)"></ellipse>
+                                        <ellipse cx="12" cy="12" rx="9" ry="4.2" fill="none" stroke="currentColor"
+                                            stroke-width="1.4" transform="rotate(120 12 12)"></ellipse>
                                     </svg>
                                 </span>
                                 React
@@ -445,7 +513,8 @@
                             <span class="skill-name tech-vue">
                                 <span class="skill-icon">
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M3 4h4l5 9 5-9h4L12 21 3 4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                                        <path d="M3 4h4l5 9 5-9h4L12 21 3 4z" fill="none" stroke="currentColor"
+                                            stroke-width="1.6" stroke-linejoin="round"></path>
                                     </svg>
                                 </span>
                                 Vue.js
@@ -463,8 +532,10 @@
                             <span class="skill-name tech-node">
                                 <span class="skill-icon">
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M12 3 4 7v10l8 4 8-4V7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
-                                        <path d="M10 10h4v4h-4z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path>
+                                        <path d="M12 3 4 7v10l8 4 8-4V7z" fill="none" stroke="currentColor"
+                                            stroke-width="1.6" stroke-linejoin="round"></path>
+                                        <path d="M10 10h4v4h-4z" stroke="currentColor" stroke-width="1.4"
+                                            stroke-linejoin="round"></path>
                                     </svg>
                                 </span>
                                 Node.js
@@ -477,8 +548,10 @@
                             <span class="skill-name tech-python">
                                 <span class="skill-icon">
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M8 4h5a3 3 0 0 1 3 3v3H9a3 3 0 0 1-3-3V6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.6"></path>
-                                        <path d="M16 20h-5a3 3 0 0 1-3-3v-3h7a3 3 0 0 1 3 3v1a2 2 0 0 1-2 2z" fill="none" stroke="currentColor" stroke-width="1.6"></path>
+                                        <path d="M8 4h5a3 3 0 0 1 3 3v3H9a3 3 0 0 1-3-3V6a2 2 0 0 1 2-2z" fill="none"
+                                            stroke="currentColor" stroke-width="1.6"></path>
+                                        <path d="M16 20h-5a3 3 0 0 1-3-3v-3h7a3 3 0 0 1 3 3v1a2 2 0 0 1-2 2z"
+                                            fill="none" stroke="currentColor" stroke-width="1.6"></path>
                                         <circle cx="10" cy="7" r="0.8" fill="currentColor"></circle>
                                         <circle cx="14" cy="17" r="0.8" fill="currentColor"></circle>
                                     </svg>
@@ -509,7 +582,8 @@
                         <span class="skill-tag tech-git">
                             <span class="tech-icon">
                                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M4 4 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                                    <path d="M4 4 20 20" fill="none" stroke="currentColor" stroke-width="1.6"
+                                        stroke-linecap="round"></path>
                                     <circle cx="9" cy="9" r="1.6" fill="currentColor"></circle>
                                     <circle cx="12" cy="12" r="1.6" fill="currentColor"></circle>
                                     <circle cx="15" cy="15" r="1.6" fill="currentColor"></circle>
@@ -520,9 +594,12 @@
                         <span class="skill-tag tech-docker">
                             <span class="tech-icon">
                                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <rect x="4" y="10" width="5" height="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
-                                    <rect x="10" y="10" width="5" height="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
-                                    <path d="M3 16h16a3 3 0 0 1-3 3H8a4 4 0 0 1-5-3z" fill="none" stroke="currentColor" stroke-width="1.6"></path>
+                                    <rect x="4" y="10" width="5" height="4" fill="none" stroke="currentColor"
+                                        stroke-width="1.6"></rect>
+                                    <rect x="10" y="10" width="5" height="4" fill="none" stroke="currentColor"
+                                        stroke-width="1.6"></rect>
+                                    <path d="M3 16h16a3 3 0 0 1-3 3H8a4 4 0 0 1-5-3z" fill="none" stroke="currentColor"
+                                        stroke-width="1.6"></path>
                                 </svg>
                             </span>
                             Docker
@@ -530,8 +607,10 @@
                         <span class="skill-tag tech-aws">
                             <span class="tech-icon">
                                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M4 17c2.5 2 5.5 3 8 3s5.5-1 8-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-                                    <path d="M6 11a4 4 0 0 1 7-2 3 3 0 0 1 5 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                                    <path d="M4 17c2.5 2 5.5 3 8 3s5.5-1 8-3" fill="none" stroke="currentColor"
+                                        stroke-width="1.6" stroke-linecap="round"></path>
+                                    <path d="M6 11a4 4 0 0 1 7-2 3 3 0 0 1 5 2" fill="none" stroke="currentColor"
+                                        stroke-width="1.6" stroke-linecap="round"></path>
                                 </svg>
                             </span>
                             AWS
@@ -540,10 +619,13 @@
                             <span class="tech-icon">
                                 <svg viewBox="0 0 24 24" aria-hidden="true">
                                     <circle cx="10" cy="6" r="2" fill="currentColor"></circle>
-                                    <circle cx="14" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
+                                    <circle cx="14" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    </circle>
                                     <circle cx="10" cy="12" r="2" fill="currentColor"></circle>
-                                    <circle cx="10" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
-                                    <path d="M14 8a2 2 0 0 1 0 4h-4" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+                                    <circle cx="10" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    </circle>
+                                    <path d="M14 8a2 2 0 0 1 0 4h-4" fill="none" stroke="currentColor"
+                                        stroke-width="1.4"></path>
                                 </svg>
                             </span>
                             Figma
@@ -551,8 +633,10 @@
                         <span class="skill-tag tech-webpack">
                             <span class="tech-icon">
                                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M12 3 4 7v10l8 4 8-4V7z" fill="none" stroke="currentColor" stroke-width="1.6"></path>
-                                    <path d="M8 9.5 12 12l4-2.5M8 14.5 12 12l4 2.5" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+                                    <path d="M12 3 4 7v10l8 4 8-4V7z" fill="none" stroke="currentColor"
+                                        stroke-width="1.6"></path>
+                                    <path d="M8 9.5 12 12l4-2.5M8 14.5 12 12l4 2.5" fill="none" stroke="currentColor"
+                                        stroke-width="1.4"></path>
                                 </svg>
                             </span>
                             Webpack
@@ -560,8 +644,10 @@
                         <span class="skill-tag tech-typescript">
                             <span class="tech-icon">
                                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
-                                    <path d="M9 10h6M12 10v7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2" fill="none"
+                                        stroke="currentColor" stroke-width="1.6"></rect>
+                                    <path d="M9 10h6M12 10v7" stroke="currentColor" stroke-width="1.6"
+                                        stroke-linecap="round"></path>
                                 </svg>
                             </span>
                             TypeScript
@@ -569,8 +655,10 @@
                         <span class="skill-tag tech-sass">
                             <span class="tech-icon">
                                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M5 18c0-3 4-3 4-1s-2 3-2 3 1.2 1 3 1c3 0 5-2 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-                                    <path d="M17 13c0-3-3-4-5-3-1.5.7-2.5 1.5-3.5 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                                    <path d="M5 18c0-3 4-3 4-1s-2 3-2 3 1.2 1 3 1c3 0 5-2 5-5" fill="none"
+                                        stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                                    <path d="M17 13c0-3-3-4-5-3-1.5.7-2.5 1.5-3.5 1.5" fill="none" stroke="currentColor"
+                                        stroke-width="1.6" stroke-linecap="round"></path>
                                 </svg>
                             </span>
                             Sass
@@ -578,7 +666,8 @@
                         <span class="skill-tag tech-jest">
                             <span class="tech-icon">
                                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M12 3 9 9l-5 .5 3.5 3-1 5.5L12 16l5.5 2-1-5.5L20 9.5 15 9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                                    <path d="M12 3 9 9l-5 .5 3.5 3-1 5.5L12 16l5.5 2-1-5.5L20 9.5 15 9z" fill="none"
+                                        stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
                                 </svg>
                             </span>
                             Jest
@@ -589,70 +678,121 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
+    <!-- Articles Section -->
+    <section id="articles" class="articles">
         <div class="container">
-            <h2 class="section-title">Gallery</h2>
-            <p class="gallery-description">A collection of moments and projects captured along the way.</p>
-            <div class="carousel-container">
-                <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous image">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
-                <div class="carousel-wrapper">
-                    <div class="carousel-track" id="carouselTrack">
-                        <div class="carousel-slide active">
-                            <img src="jona.jfif" alt="Jonas" class="carousel-image" onerror="this.src='jona.png'; this.onerror=null;">
-                            <div class="carousel-caption">
-                                <span class="carousel-name">Jonasmakeke</span>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="ETHNile.jpg" alt="ETHNile" class="carousel-image" onerror="this.src='ETHNile.png'; this.onerror=null;">
-                            <div class="carousel-caption">
-                                <span class="carousel-name">ETHNile Kampala UG</span>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="Team.jpg" alt="Team" class="carousel-image" onerror="this.src='Team.png'; this.onerror=null;">
-                            <div class="carousel-caption">
-                                <span class="carousel-name">GomaHub</span>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="jmakeke.jpg" alt="jmakeke" class="carousel-image" onerror="this.src='jmakeke.png'; this.onerror=null;">
-                            <div class="carousel-caption">
-                                <span class="carousel-name">jmakeke</span>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="jmakeke1.jpg" alt="jmakeke1" class="carousel-image" onerror="this.src='jmakeke1.png'; this.onerror=null;">
-                            <div class="carousel-caption">
-                                <span class="carousel-name">jmakeke1</span>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="Team2.jpg" alt="Team2" class="carousel-image" onerror="this.src='Team2.png'; this.onerror=null;">
-                            <div class="carousel-caption">
-                                <span class="carousel-name">GomaHub</span>
-                            </div>
-                        </div>
+            <h2 class="section-title">Articles</h2>
+            <p class="articles-description">
+                A selection of my Web3 and blockchain articles published on Medium and shared through my YouTube channel.
+            </p>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span class="article-source article-source--medium">
+                            <span class="article-source-icon">
+                                <img src="mediumlogo.png" alt="Medium logo" class="article-source-img">
+                            </span>
+                        </span>
+                        <span class="article-date">Dec 1, 2025</span>
                     </div>
-                </div>
-                <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next image">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
-            </div>
-            <div class="carousel-indicators" id="carouselIndicators">
-                <button class="carousel-indicator active" data-slide="0" aria-label="Go to slide 1"></button>
-                <button class="carousel-indicator" data-slide="1" aria-label="Go to slide 2"></button>
-                <button class="carousel-indicator" data-slide="2" aria-label="Go to slide 3"></button>
-                <button class="carousel-indicator" data-slide="3" aria-label="Go to slide 4"></button>
-                <button class="carousel-indicator" data-slide="4" aria-label="Go to slide 5"></button>
-                <button class="carousel-indicator" data-slide="5" aria-label="Go to slide 6"></button>
+                    <h3 class="article-title">How to Join Safrochain and Why This New Blockchain Matters</h3>
+                    <p class="article-excerpt">
+                        A practical guide to understanding Safrochain, why it is important for emerging markets, and how to join the ecosystem step by step.
+                    </p>
+                    <div class="article-tags">
+                        <span class="tag">Blockchain</span>
+                        <span class="tag">Web3</span>
+                        <span class="tag">Africa</span>
+                    </div>
+                    <a href="https://medium.com/@jonasmakeke/how-to-join-safrochain-and-why-this-new-blockchain-matters-85cef0ea0b3f"
+                       class="article-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Read on Medium
+                    </a>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span class="article-source article-source--medium">
+                            <span class="article-source-icon">
+                                <img src="mediumlogo.png" alt="Medium logo" class="article-source-img">
+                            </span>
+                        </span>
+                        <span class="article-date">Jun 16, 2025</span>
+                    </div>
+                    <h3 class="article-title">Polkadot: The Inter-Blockchain Highway Connecting Web3</h3>
+                    <p class="article-excerpt">
+                        An overview of Polkadot as a Layer 0 protocol, explaining how it connects multiple blockchains to build a more interoperable Web3.
+                    </p>
+                    <div class="article-tags">
+                        <span class="tag">Polkadot</span>
+                        <span class="tag">Interoperability</span>
+                        <span class="tag">Web3</span>
+                    </div>
+                    <a href="https://medium.com/@jonasmakeke"
+                       class="article-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View article on Medium
+                    </a>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span class="article-source article-source--medium">
+                            <span class="article-source-icon">
+                                <img src="mediumlogo.png" alt="Medium logo" class="article-source-img">
+                            </span>
+                        </span>
+                        <span class="article-date">Jun 12, 2025</span>
+                    </div>
+                    <h3 class="article-title">La Blockchain pour la Santé</h3>
+                    <p class="article-excerpt">
+                        Réflexion sur l’utilisation de la blockchain pour répondre aux défis du système de santé à Goma, en RDC, et améliorer la transparence.
+                    </p>
+                    <div class="article-tags">
+                        <span class="tag">Blockchain</span>
+                        <span class="tag">Santé</span>
+                        <span class="tag">RDC</span>
+                    </div>
+                    <a href="https://medium.com/@jonasmakeke/la-blockchain-pour-la-sant%C3%A9-16a42c10b481"
+                       class="article-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Lire sur Medium
+                    </a>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span class="article-source article-source--youtube">
+                            <span class="article-source-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <rect x="3" y="6" width="18" height="12" rx="3" ry="3"></rect>
+                                    <polygon points="10 9 16 12 10 15" fill="white"></polygon>
+                                </svg>
+                            </span>
+                            YouTube
+                        </span>
+                        <span class="article-date">Videos</span>
+                    </div>
+                    <h3 class="article-title">Web3 & Blockchain Educational Videos</h3>
+                    <p class="article-excerpt">
+                        Video content where I explain Web3 concepts, blockchain use cases and development tips in an accessible and visual way.
+                    </p>
+                    <div class="article-tags">
+                        <span class="tag">YouTube</span>
+                        <span class="tag">Education</span>
+                        <span class="tag">Web3</span>
+                    </div>
+                    <a href="https://www.youtube.com/@JonasMakekeB"
+                       class="article-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Watch on YouTube
+                    </a>
+                </article>
             </div>
         </div>
     </section>
@@ -661,57 +801,70 @@
     <section id="social" class="social">
         <div class="container">
             <h2 class="section-title">Connect With Me</h2>
-            <p class="social-description">Follow me on social media to stay updated with my latest projects and insights.</p>
+            <p class="social-description">Follow me on social media to stay updated with my latest projects and
+                insights.</p>
             <div class="social-grid">
                 <a href="mailto:jmakeke6@mail.com" class="social-link" aria-label="Email">
                     <div class="social-icon email">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
                     </div>
                     <span class="social-name">Email</span>
                     <span class="social-handle">jmakeke6@mail.com</span>
                 </a>
-                <a href="https://x.com/jonas_makeke" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                <a href="https://x.com/jonas_makeke" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="X (Twitter)">
                     <div class="social-icon x-twitter">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                         </svg>
                     </div>
                     <span class="social-name">X (Twitter)</span>
                     <span class="social-handle">@jonas_makeke</span>
                 </a>
-                <a href="https://www.linkedin.com/in/jonas-makeke-a523b8263/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/jonas-makeke-a523b8263/" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
                     <div class="social-icon linkedin">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                         </svg>
                     </div>
                     <span class="social-name">LinkedIn</span>
                     <span class="social-handle">Jonas Makeke</span>
                 </a>
-                <a href="https://github.com/jonas-makeke" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href="https://github.com/jonas-makeke" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
                     <div class="social-icon github">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                         </svg>
                     </div>
                     <span class="social-name">GitHub</span>
                     <span class="social-handle">jonas-makeke</span>
                 </a>
-                <a href="https://web.facebook.com/jonas.makeke.73" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <a href="https://web.facebook.com/jonas.makeke.73" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="Facebook">
                     <div class="social-icon facebook">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                         </svg>
                     </div>
                     <span class="social-name">Facebook</span>
                     <span class="social-handle">Jonas Makeke</span>
                 </a>
-                <a href="https://www.instagram.com/makekejonas/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/makekejonas/" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="Instagram">
                     <div class="social-icon instagram">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -720,19 +873,23 @@
                     <span class="social-name">Instagram</span>
                     <span class="social-handle">@makekejonas</span>
                 </a>
-                <a href="https://medium.com/@jonasmakeke" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Medium">
+                <a href="https://medium.com/@jonasmakeke" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="Medium">
                     <div class="social-icon medium">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                            <path
+                                d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
                         </svg>
                     </div>
                     <span class="social-name">Medium</span>
                     <span class="social-handle">@jonasmakeke</span>
                 </a>
-                <a href="http://www.youtube.com/@JonasMakekeB" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <a href="http://www.youtube.com/@JonasMakekeB" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="YouTube">
                     <div class="social-icon youtube">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                         </svg>
                     </div>
                     <span class="social-name">YouTube</span>
@@ -741,7 +898,8 @@
             </div>
             <div class="contact-message">
                 <p class="contact-message-text">
-                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out through any of the channels above!
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                    visions. Feel free to reach out through any of the channels above!
                 </p>
             </div>
         </div>
@@ -754,39 +912,46 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <p class="contact-description">
-                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                        visions.
                     </p>
                     <div class="contact-methods">
                         <a href="mailto:jmakeke6@mail.com" class="contact-method">
-                            <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
                             <span>jmakeke6@mail.com</span>
                         </a>
                         <a href="tel:+243990351690" class="contact-method">
-                            <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
                             </svg>
                             <span>+243 899 179 238</span>
                         </a>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/xjgabayp">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required placeholder="Votre nom (vous contactez Jonas Makeke)">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required placeholder="Votre email (ex: nom@domaine.com)">
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="5" required placeholder="Bonjour Jonas, je te contacte au sujet de..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="22" y1="2" x2="11" y2="13"></line>
                             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                         </svg>
@@ -812,4 +977,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
