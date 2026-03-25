@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         // Apply theme immediately to prevent flash
-        (function () {
+        (function() {
             const theme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', theme);
         })();
@@ -49,7 +49,6 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#articles" class="nav-link">Articles</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="#social" class="nav-link">Social</a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                 <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -57,6 +56,7 @@
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
+            <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -126,21 +126,21 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title" data-i18n="about.title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>
+                    <p data-i18n="about.p1">
                         I am a Junior Web3 Developer passionate about blockchain and decentralized technologies. 
                         I specialize in transforming complex Web3 concepts into practical, scalable, and accessible solutions. 
                         My approach combines analytical thinking, technical experimentation, and continuous learning to build systems 
                         that are both functional and impactful.
                     </p>
-                    <p>
+                    <p data-i18n="about.p2">
                         Each project begins with understanding the underlying blockchain logic and user needs,
                         then designing decentralized applications that are secure, maintainable, and community-oriented. 
                         I focus on writing clean, structured code while improving my expertise in smart contracts, front-end integration, and Web3 architecture.
                     </p>
-                    <p>
+                    <p data-i18n="about.p3">
                         Beyond development, I actively create educational content to simplify blockchain technologies and contribute to community growth and adoption.
                     </p>
                     <div class="about-stats">
@@ -154,7 +154,7 @@
                                 <line x1="12" y1="22.08" x2="12" y2="12"></line>
                             </svg>
                             <div class="stat-number" data-target="50" data-suffix="+">50+</div>
-                            <div class="stat-label">Projects Solved</div>
+                            <div class="stat-label" data-i18n="about.stat.projectsSolved">Projects Solved</div>
                         </div>
                         <div class="stat-item">
                             <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -163,7 +163,7 @@
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
                             <div class="stat-number" data-target="3" data-suffix="+">3+</div>
-                            <div class="stat-label">Years Experience</div>
+                            <div class="stat-label" data-i18n="about.stat.yearsExperience">Years Experience</div>
                         </div>
                         <div class="stat-item">
                             <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -172,7 +172,7 @@
                                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
                             </svg>
                             <div class="stat-number" data-target="100" data-suffix="%">100%</div>
-                            <div class="stat-label">Success Rate</div>
+                            <div class="stat-label" data-i18n="about.stat.successRate">Success Rate</div>
                         </div>
                     </div>
                 </div>
@@ -183,18 +183,18 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title" data-i18n="projects.title">Projets en vedette</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <span>Project 1</span>
+                            <span data-i18n="projects.p1.placeholder">Projet 1</span>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">ProofChain</h3>
-                        <p class="project-description">
-                            A brief description of the project, highlighting key features and technologies used.
+                        <h3 class="project-title" data-i18n="projects.p1.title">nom du projet</h3>
+                        <p class="project-description" data-i18n="projects.p1.description">
+                            Une brève description du projet, mettant en avant les fonctionnalités clés et les technologies utilisées.
                         </p>
                         <div class="project-tags">
                             <span class="tag tech-react">
@@ -240,7 +240,7 @@
                                     <polyline points="15 3 21 3 21 9"></polyline>
                                     <line x1="10" y1="14" x2="21" y2="3"></line>
                                 </svg>
-                                Live Demo
+                                <span data-i18n="projects.p1.demo">Démo en direct</span>
                             </a>
                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -257,13 +257,13 @@
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <span>Project 2</span>
+                            <span data-i18n="projects.p2.placeholder">Projet 2</span>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">ProofChain</h3>
-                        <p class="project-description">
-                            A brief description of the project, highlighting key features and technologies used.
+                        <h3 class="project-title" data-i18n="projects.p2.title">nom du projet</h3>
+                        <p class="project-description" data-i18n="projects.p2.description">
+                            Une brève description du projet, mettant en avant les fonctionnalités clés et les technologies utilisées.
                         </p>
                         <div class="project-tags">
                             <span class="tag tech-vue">
@@ -302,7 +302,7 @@
                                     <polyline points="15 3 21 3 21 9"></polyline>
                                     <line x1="10" y1="14" x2="21" y2="3"></line>
                                 </svg>
-                                Live Demo
+                                <span data-i18n="projects.p2.demo">Démo en direct</span>
                             </a>
                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -319,13 +319,13 @@
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <span>Project 3</span>
+                            <span data-i18n="projects.p3.placeholder">Projet 3</span>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">ProofChain</h3>
-                        <p class="project-description">
-                            A brief description of the project, highlighting key features and technologies used.
+                        <h3 class="project-title" data-i18n="projects.p3.title">nom du projet</h3>
+                        <p class="project-description" data-i18n="projects.p3.description">
+                            Une brève description du projet, mettant en avant les fonctionnalités clés et les technologies utilisées.
                         </p>
                         <div class="project-tags">
                             <span class="tag tech-python">
@@ -368,7 +368,7 @@
                                     <polyline points="15 3 21 3 21 9"></polyline>
                                     <line x1="10" y1="14" x2="21" y2="3"></line>
                                 </svg>
-                                Live Demo
+                                <span data-i18n="projects.p3.demo">Démo en direct</span>
                             </a>
                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -389,7 +389,7 @@
     <!-- Methodology Section -->
     <section id="methodology" class="methodology">
         <div class="container">
-            <h2 class="section-title">Problem-Solving Approach</h2>
+            <h2 class="section-title" data-i18n="methodology.title">Problem-Solving Approach</h2>
             <div class="methodology-grid">
                 <div class="method-card">
                     <div class="method-icon">
@@ -400,8 +400,8 @@
                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
                         </svg>
                     </div>
-                    <h3 class="method-title">Analyze</h3>
-                    <p class="method-description">Deep dive into the problem space, understanding constraints,
+                    <h3 class="method-title" data-i18n="methodology.step1.title">Analyze</h3>
+                    <p class="method-description" data-i18n="methodology.step1.description">Deep dive into the problem space, understanding constraints,
                         requirements, and stakeholder needs.</p>
                 </div>
                 <div class="method-card">
@@ -418,8 +418,8 @@
                             <line x1="12" y1="22.08" x2="12" y2="12"></line>
                         </svg>
                     </div>
-                    <h3 class="method-title">Design</h3>
-                    <p class="method-description">Architect robust solutions with scalability, maintainability, and
+                    <h3 class="method-title" data-i18n="methodology.step2.title">Design</h3>
+                    <p class="method-description" data-i18n="methodology.step2.description">Architect robust solutions with scalability, maintainability, and
                         performance in mind.</p>
                 </div>
                 <div class="method-card">
@@ -430,8 +430,8 @@
                             <polyline points="8 6 2 12 8 18"></polyline>
                         </svg>
                     </div>
-                    <h3 class="method-title">Implement</h3>
-                    <p class="method-description">Build with clean code, following best practices, testing thoroughly,
+                    <h3 class="method-title" data-i18n="methodology.step3.title">Implement</h3>
+                    <p class="method-description" data-i18n="methodology.step3.description">Build with clean code, following best practices, testing thoroughly,
                         and iterating based on feedback.</p>
                 </div>
                 <div class="method-card">
@@ -442,8 +442,8 @@
                             <polyline points="22 4 12 14.01 9 11.01"></polyline>
                         </svg>
                     </div>
-                    <h3 class="method-title">Optimize</h3>
-                    <p class="method-description">Continuously monitor, measure, and improve solutions to ensure they
+                    <h3 class="method-title" data-i18n="methodology.step4.title">Optimize</h3>
+                    <p class="method-description" data-i18n="methodology.step4.description">Continuously monitor, measure, and improve solutions to ensure they
                         deliver maximum value.</p>
                 </div>
             </div>
@@ -453,10 +453,10 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
+            <h2 class="section-title" data-i18n="skills.title">Skills & Technologies</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3 class="skill-category-title">Frontend</h3>
+                    <h3 class="skill-category-title" data-i18n="skills.category.frontend">Frontend</h3>
                     <div class="skill-items">
                         <div class="skill-item">
                             <span class="skill-name tech-css">
@@ -526,7 +526,7 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3 class="skill-category-title">Backend</h3>
+                    <h3 class="skill-category-title" data-i18n="skills.category.backend">Backend</h3>
                     <div class="skill-items">
                         <div class="skill-item">
                             <span class="skill-name tech-node">
@@ -563,13 +563,13 @@
                             </div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Database Design</span>
+                            <span class="skill-name" data-i18n="skills.misc.databaseDesign">Database Design</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 70%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">API Development</span>
+                            <span class="skill-name" data-i18n="skills.misc.apiDevelopment">API Development</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 85%"></div>
                             </div>
@@ -577,7 +577,7 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3 class="skill-category-title">Tools & Others</h3>
+                    <h3 class="skill-category-title" data-i18n="skills.category.tools">Tools & Others</h3>
                     <div class="skill-tags">
                         <span class="skill-tag tech-git">
                             <span class="tech-icon">
@@ -681,8 +681,8 @@
     <!-- Articles Section -->
     <section id="articles" class="articles">
         <div class="container">
-            <h2 class="section-title">Articles</h2>
-            <p class="articles-description">
+            <h2 class="section-title" data-i18n="articles.title">Articles</h2>
+            <p class="articles-description" data-i18n="articles.description">
                 A selection of my Web3 and blockchain articles published on Medium and shared through my YouTube channel.
             </p>
             <div class="articles-grid">
@@ -695,8 +695,8 @@
                         </span>
                         <span class="article-date">Dec 1, 2025</span>
                     </div>
-                    <h3 class="article-title">How to Join Safrochain and Why This New Blockchain Matters</h3>
-                    <p class="article-excerpt">
+                    <h3 class="article-title" data-i18n="articles.a1.title">How to Join Safrochain and Why This New Blockchain Matters</h3>
+                    <p class="article-excerpt" data-i18n="articles.a1.excerpt">
                         A practical guide to understanding Safrochain, why it is important for emerging markets, and how to join the ecosystem step by step.
                     </p>
                     <div class="article-tags">
@@ -708,7 +708,7 @@
                        class="article-link"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Read on Medium
+                        <span data-i18n="articles.a1.linkLabel">Read on Medium</span>
                     </a>
                 </article>
 
@@ -721,8 +721,8 @@
                         </span>
                         <span class="article-date">Jun 16, 2025</span>
                     </div>
-                    <h3 class="article-title">Polkadot: The Inter-Blockchain Highway Connecting Web3</h3>
-                    <p class="article-excerpt">
+                    <h3 class="article-title" data-i18n="articles.a2.title">Polkadot: The Inter-Blockchain Highway Connecting Web3</h3>
+                    <p class="article-excerpt" data-i18n="articles.a2.excerpt">
                         An overview of Polkadot as a Layer 0 protocol, explaining how it connects multiple blockchains to build a more interoperable Web3.
                     </p>
                     <div class="article-tags">
@@ -734,7 +734,7 @@
                        class="article-link"
                        target="_blank"
                        rel="noopener noreferrer">
-                        View article on Medium
+                        <span data-i18n="articles.a2.linkLabel">View article on Medium</span>
                     </a>
                 </article>
 
@@ -747,8 +747,8 @@
                         </span>
                         <span class="article-date">Jun 12, 2025</span>
                     </div>
-                    <h3 class="article-title">La Blockchain pour la Santé</h3>
-                    <p class="article-excerpt">
+                    <h3 class="article-title" data-i18n="articles.a3.title">La Blockchain pour la Santé</h3>
+                    <p class="article-excerpt" data-i18n="articles.a3.excerpt">
                         Réflexion sur l’utilisation de la blockchain pour répondre aux défis du système de santé à Goma, en RDC, et améliorer la transparence.
                     </p>
                     <div class="article-tags">
@@ -760,7 +760,7 @@
                        class="article-link"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Lire sur Medium
+                        <span data-i18n="articles.a3.linkLabel">Lire sur Medium</span>
                     </a>
                 </article>
 
@@ -777,8 +777,8 @@
                         </span>
                         <span class="article-date">Videos</span>
                     </div>
-                    <h3 class="article-title">Web3 & Blockchain Educational Videos</h3>
-                    <p class="article-excerpt">
+                    <h3 class="article-title" data-i18n="articles.a4.title">Web3 & Blockchain Educational Videos</h3>
+                    <p class="article-excerpt" data-i18n="articles.a4.excerpt">
                         Video content where I explain Web3 concepts, blockchain use cases and development tips in an accessible and visual way.
                     </p>
                     <div class="article-tags">
@@ -790,117 +790,14 @@
                        class="article-link"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Watch on YouTube
+                        <span data-i18n="articles.a4.linkLabel">Watch on YouTube</span>
                     </a>
                 </article>
             </div>
-        </div>
-    </section>
-
-    <!-- Social Media Section -->
-    <section id="social" class="social">
-        <div class="container">
-            <h2 class="section-title">Connect With Me</h2>
-            <p class="social-description">Follow me on social media to stay updated with my latest projects and
-                insights.</p>
-            <div class="social-grid">
-                <a href="mailto:jmakeke6@mail.com" class="social-link" aria-label="Email">
-                    <div class="social-icon email">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                            </path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </div>
-                    <span class="social-name">Email</span>
-                    <span class="social-handle">jmakeke6@mail.com</span>
+            <div class="articles-cta">
+                <a href="#contact" class="btn btn-secondary articles-social-cta" data-i18n="articles.moreSocials">
+                    To see more, visit my social networks
                 </a>
-                <a href="https://x.com/jonas_makeke" class="social-link" target="_blank" rel="noopener noreferrer"
-                    aria-label="X (Twitter)">
-                    <div class="social-icon x-twitter">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                        </svg>
-                    </div>
-                    <span class="social-name">X (Twitter)</span>
-                    <span class="social-handle">@jonas_makeke</span>
-                </a>
-                <a href="https://www.linkedin.com/in/jonas-makeke-a523b8263/" class="social-link" target="_blank"
-                    rel="noopener noreferrer" aria-label="LinkedIn">
-                    <div class="social-icon linkedin">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                    </div>
-                    <span class="social-name">LinkedIn</span>
-                    <span class="social-handle">Jonas Makeke</span>
-                </a>
-                <a href="https://github.com/jonas-makeke" class="social-link" target="_blank" rel="noopener noreferrer"
-                    aria-label="GitHub">
-                    <div class="social-icon github">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
-                    </div>
-                    <span class="social-name">GitHub</span>
-                    <span class="social-handle">jonas-makeke</span>
-                </a>
-                <a href="https://web.facebook.com/jonas.makeke.73" class="social-link" target="_blank"
-                    rel="noopener noreferrer" aria-label="Facebook">
-                    <div class="social-icon facebook">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                        </svg>
-                    </div>
-                    <span class="social-name">Facebook</span>
-                    <span class="social-handle">Jonas Makeke</span>
-                </a>
-                <a href="https://www.instagram.com/makekejonas/" class="social-link" target="_blank"
-                    rel="noopener noreferrer" aria-label="Instagram">
-                    <div class="social-icon instagram">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                    </div>
-                    <span class="social-name">Instagram</span>
-                    <span class="social-handle">@makekejonas</span>
-                </a>
-                <a href="https://medium.com/@jonasmakeke" class="social-link" target="_blank" rel="noopener noreferrer"
-                    aria-label="Medium">
-                    <div class="social-icon medium">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
-                        </svg>
-                    </div>
-                    <span class="social-name">Medium</span>
-                    <span class="social-handle">@jonasmakeke</span>
-                </a>
-                <a href="http://www.youtube.com/@JonasMakekeB" class="social-link" target="_blank"
-                    rel="noopener noreferrer" aria-label="YouTube">
-                    <div class="social-icon youtube">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                        </svg>
-                    </div>
-                    <span class="social-name">YouTube</span>
-                    <span class="social-handle">@JonasMakekeB</span>
-                </a>
-            </div>
-            <div class="contact-message">
-                <p class="contact-message-text">
-                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
-                    visions. Feel free to reach out through any of the channels above!
-                </p>
             </div>
         </div>
     </section>
@@ -916,7 +813,7 @@
                         visions.
                     </p>
                     <div class="contact-methods">
-                        <a href="mailto:jmakeke6@mail.com" class="contact-method">
+                        <a href="mailto:jmakeke6@mail.com" class="contact-method contact-method--email">
                             <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
@@ -925,7 +822,7 @@
                             </svg>
                             <span>jmakeke6@mail.com</span>
                         </a>
-                        <a href="tel:+243990351690" class="contact-method">
+                        <a href="tel:+243990351690" class="contact-method contact-method--phone">
                             <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path
@@ -935,15 +832,64 @@
                             <span>+243 899 179 238</span>
                         </a>
                     </div>
+                    <div class="contact-social">
+                        <a href="https://web.facebook.com/jonas.makeke.73" class="contact-social-btn social-facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/jonas_makeke" class="contact-social-btn social-x" target="_blank" rel="noopener noreferrer" aria-label="X">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/jonas-makeke-a523b8263/" class="contact-social-btn social-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/jonas-makeke" class="contact-social-btn social-github" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.5 11.5 0 0 1 12 5.8c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.565 21.798 24 17.302 24 12 24 5.373 18.627 0 12 0z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/makekejonas/" class="contact-social-btn social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <circle cx="17.5" cy="6.5" r="1"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://medium.com/@jonasmakeke" class="contact-social-btn social-medium" target="_blank" rel="noopener noreferrer" aria-label="Medium">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://discord.com/users/@jonasmakeke" class="contact-social-btn social-discord" target="_blank" rel="noopener noreferrer" aria-label="Discord @jonasmakeke" title="@jonasmakeke">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M20.317 4.369A19.791 19.791 0 0 0 15.885 3c-.191.328-.403.775-.552 1.124a18.27 18.27 0 0 0-5.165 0A12.64 12.64 0 0 0 9.615 3 19.736 19.736 0 0 0 5.182 4.37C2.382 8.545 1.62 12.617 2 16.63a19.9 19.9 0 0 0 5.993 3.03c.483-.65.913-1.337 1.284-2.054-.706-.266-1.378-.597-2.006-.984.167-.122.33-.248.488-.378 3.87 1.824 8.066 1.824 11.89 0 .16.131.322.257.488.378-.63.388-1.303.72-2.01.986.37.715.8 1.401 1.283 2.052A19.87 19.87 0 0 0 22 16.63c.447-4.654-.764-8.689-1.683-12.261zM9.95 14.17c-1.183 0-2.158-1.085-2.158-2.419 0-1.335.955-2.42 2.158-2.42 1.212 0 2.167 1.095 2.158 2.42 0 1.334-.955 2.419-2.158 2.419zm4.1 0c-1.183 0-2.158-1.085-2.158-2.419 0-1.335.955-2.42 2.158-2.42 1.212 0 2.167 1.095 2.158 2.42 0 1.334-.946 2.419-2.158 2.419z"></path>
+                            </svg>
+                        </a>
+                        <a href="http://www.youtube.com/@JonasMakekeB" class="contact-social-btn social-youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://t.me/Jonasmakeke" class="contact-social-btn social-telegram" target="_blank" rel="noopener noreferrer" aria-label="Telegram @Jonasmakeke" title="@Jonasmakeke">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M9.999 15.17 9.78 18.65c.314 0 .45-.135.612-.297l1.468-1.405 3.043 2.227c.558.307.952.146 1.102-.515l1.996-9.363.001-.001c.176-.82-.296-1.14-.84-.937L4.6 12.246c-.8.312-.788.758-.136.958l3.204 1 7.444-4.694c.35-.23.668-.103.406.127"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 <form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/xjgabayp">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Votre nom (vous contactez Jonas Makeke)">
+                        <input type="text" id="name" name="name" required placeholder="Votre nom">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="Votre email (ex: nom@domaine.com)">
+                        <input type="email" id="email" name="email" required placeholder="Votre email">
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
@@ -955,7 +901,7 @@
                             <line x1="22" y1="2" x2="11" y2="13"></line>
                             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                         </svg>
-                        Send Message
+                        <span data-i18n="contact.form.send">Send Message</span>
                     </button>
                 </form>
             </div>
@@ -965,7 +911,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Jonas Makeke. All rights reserved.</p>
+            <p data-i18n="footer.copyright">&copy; 2026 Jonas Makeke. All rights reserved.</p>
             <div class="footer-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>

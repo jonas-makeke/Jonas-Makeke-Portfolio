@@ -1,5 +1,5 @@
 // Theme Toggle - Initialize immediately and on DOM ready
-(function () {
+(function() {
     'use strict';
 
     const html = document.documentElement;
@@ -102,7 +102,7 @@ updateActiveNav();
 
 // Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -115,19 +115,273 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Language Toggle (EN/FR)
+const langToggle = document.getElementById('langToggle');
+// Force EN as default (toggle only switches to FR when user clicks).
+let currentLang = 'en';
+
+const translations = {
+    en: {
+        'nav.home': 'Home',
+        'nav.about': 'About',
+        'nav.methodology': 'Methodology',
+        'nav.projects': 'Projects',
+        'nav.skills': 'Skills',
+        'nav.articles': 'Articles',
+        'nav.contact': 'Contact',
+        'hero.greeting': "Hello, I'm",
+        'hero.description': 'I transform the complexity of Web3 into practical and educational technical solutions. As a Junior Web3 Developer and blockchain content creator, I design scalable decentralized tools while making blockchain technologies more accessible to communities.',
+        'hero.viewWork': 'View My Work',
+        'hero.getInTouch': 'Get In Touch',
+        'hero.downloadCv': 'Download CV',
+        'articles.title': 'Articles',
+        'articles.description': 'A selection of my Web3 and blockchain articles published on Medium and shared through my YouTube channel.',
+        'articles.healthTitle': 'Blockchain for Healthcare',
+        'articles.healthExcerpt': 'A reflection on how blockchain can help address healthcare challenges in Goma, DR Congo, and improve transparency.',
+        'articles.healthTag': 'Health',
+        'articles.readMediumFr': 'Read on Medium',
+        'contact.title': 'Get In Touch',
+        'contact.description': "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.",
+        'contact.form.name': 'Name',
+        'contact.form.email': 'Email',
+        'contact.form.message': 'Message',
+        'contact.form.send': 'Send Message',
+        'contact.form.namePlaceholder': 'Your name',
+        'contact.form.emailPlaceholder': 'Your email',
+        'contact.form.messagePlaceholder': 'Hello Jonas, I am contacting you about...',
+        'articles.moreSocials': 'To see more, visit my social networks',
+
+        'about.title': 'About Me',
+        'about.p1': 'I am a Junior Web3 Developer passionate about blockchain and decentralized technologies. I specialize in transforming complex Web3 concepts into practical, scalable, and accessible solutions. My approach combines analytical thinking, technical experimentation, and continuous learning to build systems that are both functional and impactful.',
+        'about.p2': 'Each project begins with understanding the underlying blockchain logic and user needs, then designing decentralized applications that are secure, maintainable, and community-oriented. I focus on writing clean, structured code while improving my expertise in smart contracts, front-end integration, and Web3 architecture.',
+        'about.p3': 'Beyond development, I actively create educational content to simplify blockchain technologies and contribute to community growth and adoption.',
+        'about.stat.projectsSolved': 'Projects Solved',
+        'about.stat.yearsExperience': 'Years Experience',
+        'about.stat.successRate': 'Success Rate',
+
+        'projects.title': 'Featured Projects',
+        'projects.p1.placeholder': 'Project 1',
+        'projects.p1.title': 'ProofChain',
+        'projects.p1.description': 'A brief description of the project, highlighting key features and technologies used.',
+        'projects.p1.demo': 'Live Demo',
+        'projects.p2.placeholder': 'Project 2',
+        'projects.p2.title': 'ProofChain',
+        'projects.p2.description': 'A brief description of the project, highlighting key features and technologies used.',
+        'projects.p2.demo': 'Live Demo',
+        'projects.p3.placeholder': 'Project 3',
+        'projects.p3.title': 'ProofChain',
+        'projects.p3.description': 'A brief description of the project, highlighting key features and technologies used.',
+        'projects.p3.demo': 'Live Demo',
+
+        'methodology.title': 'Problem-Solving Approach',
+        'methodology.step1.title': 'Analyze',
+        'methodology.step1.description': 'Deep dive into the problem space, understanding constraints, requirements, and stakeholder needs.',
+        'methodology.step2.title': 'Design',
+        'methodology.step2.description': 'Architect robust solutions with scalability, maintainability, and performance in mind.',
+        'methodology.step3.title': 'Implement',
+        'methodology.step3.description': 'Build with clean code, following best practices, testing thoroughly, and iterating based on feedback.',
+        'methodology.step4.title': 'Optimize',
+        'methodology.step4.description': 'Continuously monitor, measure, and improve solutions to ensure they deliver maximum value.',
+
+        'skills.title': 'Skills & Technologies',
+        'skills.category.frontend': 'Frontend',
+        'skills.category.backend': 'Backend',
+        'skills.category.tools': 'Tools & Others',
+        'skills.misc.databaseDesign': 'Database Design',
+        'skills.misc.apiDevelopment': 'API Development',
+
+        'articles.a1.title': 'How to Join Safrochain and Why This New Blockchain Matters',
+        'articles.a1.excerpt': 'A practical guide to understanding Safrochain, why it is important for emerging markets, and how to join the ecosystem step by step.',
+        'articles.a1.linkLabel': 'Read on Medium',
+        'articles.a2.title': 'Polkadot: The Inter-Blockchain Highway Connecting Web3',
+        'articles.a2.excerpt': 'An overview of Polkadot as a Layer 0 protocol, explaining how it connects multiple blockchains to build a more interoperable Web3.',
+        'articles.a2.linkLabel': 'View article on Medium',
+        'articles.a3.title': 'Blockchain for Health',
+        'articles.a3.excerpt': 'A reflection on how blockchain can help address healthcare challenges in Goma, DR Congo, and improve transparency.',
+        'articles.a3.linkLabel': 'Read on Medium',
+        'articles.a4.title': 'Web3 & Blockchain Educational Videos',
+        'articles.a4.excerpt': 'Video content where I explain Web3 concepts, blockchain use cases and development tips in an accessible and visual way.',
+        'articles.a4.linkLabel': 'Watch on YouTube',
+
+        'footer.copyright': '© 2026 Jonas Makeke. All rights reserved.'
+    },
+    fr: {
+        'nav.home': 'Accueil',
+        'nav.about': 'A Propos',
+        'nav.methodology': 'Methodologie',
+        'nav.projects': 'Projets',
+        'nav.skills': 'Competences',
+        'nav.articles': 'Articles',
+        'nav.contact': 'Contact',
+        'hero.greeting': 'Bonjour, je suis',
+        'hero.description': "Je transforme la complexite du Web3 en solutions techniques pratiques et educatives. En tant que developpeur Web3 junior et createur de contenu blockchain, je concois des outils decentralises evolutifs tout en rendant ces technologies plus accessibles aux communautes.",
+        'hero.viewWork': 'Voir mes projets',
+        'hero.getInTouch': 'Me contacter',
+        'hero.downloadCv': 'Telecharger le CV',
+        'articles.title': 'Articles',
+        'articles.description': 'Une selection de mes articles Web3 et blockchain publies sur Medium et partages sur ma chaine YouTube.',
+        'articles.healthTitle': 'La Blockchain pour la Sante',
+        'articles.healthExcerpt': "Une reflexion sur l'utilisation de la blockchain pour repondre aux defis du systeme de sante a Goma, en RDC, et ameliorer la transparence.",
+        'articles.healthTag': 'Sante',
+        'articles.readMediumFr': 'Lire sur Medium',
+        'contact.title': 'Me contacter',
+        'contact.description': "Je suis toujours ouvert a discuter de nouveaux projets, d'idees creatives, ou d'opportunites de collaboration.",
+        'contact.form.name': 'Nom',
+        'contact.form.email': 'Email',
+        'contact.form.message': 'Message',
+        'contact.form.send': 'Envoyer le message',
+        'contact.form.namePlaceholder': 'Votre nom',
+        'contact.form.emailPlaceholder': 'Votre email',
+        'contact.form.messagePlaceholder': 'Bonjour Jonas, je te contacte au sujet de...',
+        'articles.moreSocials': 'Pour voir plus, visitez mes reseaux sociaux',
+
+        'about.title': 'A Propos',
+        'about.p1': "Je suis un developpeur Web3 junior passionne par la blockchain et les technologies decentralisees. Je transforme des concepts Web3 complexes en solutions pratiques, evolutives et accessibles. Mon approche combine une pensee analytique, l'experimentation technique et l'apprentissage continu pour construire des systemes a la fois fonctionnels et porteurs de valeur.",
+        'about.p2': "Chaque projet commence par la comprehension de la logique blockchain sous-jacente et des besoins utilisateurs, puis par la conception d'applications decentralisees securisees, maintenables et orientees community. Je m'efforce d'ecrire du code propre et structure tout en developpant mon expertise dans les smart contracts, l'integration front-end et l'architecture Web3.",
+        'about.p3': "Au-dela du developpement, je cree activement du contenu educatif pour simplifier les technologies blockchain et contribuer a la croissance et a l'adoption de la communaute.",
+        'about.stat.projectsSolved': 'Projets resolus',
+        'about.stat.yearsExperience': "Annees d'experience",
+        'about.stat.successRate': 'Taux de reussite',
+
+        'projects.title': 'Projets en vedette',
+        'projects.p1.placeholder': 'Projet 1',
+        'projects.p1.title': 'ProofChain',
+        'projects.p1.description': 'Une breve description du projet, mettant en avant les fonctionnalites cles et les technologies utilisees.',
+        'projects.p1.demo': 'Demo en direct',
+        'projects.p2.placeholder': 'Projet 2',
+        'projects.p2.title': 'ProofChain',
+        'projects.p2.description': 'Une breve description du projet, mettant en avant les fonctionnalites cles et les technologies utilisees.',
+        'projects.p2.demo': 'Demo en direct',
+        'projects.p3.placeholder': 'Projet 3',
+        'projects.p3.title': 'ProofChain',
+        'projects.p3.description': 'Une breve description du projet, mettant en avant les fonctionnalites cles et les technologies utilisees.',
+        'projects.p3.demo': 'Demo en direct',
+
+        'methodology.title': 'Approche de Resolution',
+        'methodology.step1.title': 'Analyser',
+        'methodology.step1.description': 'Approfondir l espace du probleme, comprendre les contraintes, les exigences et les besoins des parties prenantes.',
+        'methodology.step2.title': 'Concevoir',
+        'methodology.step2.description': 'Concevoir des solutions robustes en tenant compte de la scalabilite, de la maintenabilite et de la performance.',
+        'methodology.step3.title': 'Implementer',
+        'methodology.step3.description': 'Construire avec du code propre, en suivant les bonnes pratiques, en testant en profondeur, puis en iterant selon le feedback.',
+        'methodology.step4.title': 'Optimiser',
+        'methodology.step4.description': 'Surveiller, mesurer et ameliorer en continu pour s assurer que les solutions apportent le maximum de valeur.',
+
+        'skills.title': 'Competences & Technologies',
+        'skills.category.frontend': 'Frontend',
+        'skills.category.backend': 'Backend',
+        'skills.category.tools': 'Outils et autres',
+        'skills.misc.databaseDesign': 'Conception de bases de donnees',
+        'skills.misc.apiDevelopment': "Developpement d API",
+
+        'articles.a1.title': 'Comment rejoindre Safrochain et pourquoi cette nouvelle blockchain compte',
+        'articles.a1.excerpt': 'Un guide pratique pour comprendre Safrochain, pourquoi c est important pour les marches emergents, et comment rejoindre l ecosysteme pas a pas.',
+        'articles.a1.linkLabel': 'Lire sur Medium',
+        'articles.a2.title': 'Polkadot : l autoroute inter-blockchain reliant Web3',
+        'articles.a2.excerpt': 'Un aperçu de Polkadot en tant que protocole Layer 0, expliquant comment il connecte plusieurs blockchains pour construire un Web3 plus interoperable.',
+        'articles.a2.linkLabel': 'Voir l article sur Medium',
+        'articles.a3.title': 'La Blockchain pour la Sante',
+        'articles.a3.excerpt': 'Une reflexion sur l utilisation de la blockchain pour repondre aux defis du systeme de sante a Goma, en RDC, et ameliorer la transparence.',
+        'articles.a3.linkLabel': 'Lire sur Medium',
+        'articles.a4.title': 'Videos educatives Web3 et Blockchain',
+        'articles.a4.excerpt': 'Du contenu video ou j explique les concepts Web3, les cas d usage de la blockchain et des conseils de developpement de maniere accessible et visuelle.',
+        'articles.a4.linkLabel': 'Regarder sur YouTube',
+
+        'footer.copyright': '© 2026 Jonas Makeke. Tous droits reserves.'
+    }
+};
+
+function applyLanguage(lang) {
+    const dict = translations[lang] || translations.en;
+    document.documentElement.setAttribute('lang', lang);
+
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) el.setAttribute('placeholder', dict[key]);
+    });
+
+    // Fallback updates for elements without data-i18n attributes
+    const navMap = {
+        '#home': dict['nav.home'],
+        '#about': dict['nav.about'],
+        '#methodology': dict['nav.methodology'],
+        '#projects': dict['nav.projects'],
+        '#skills': dict['nav.skills'],
+        '#articles': dict['nav.articles'],
+        '#contact': dict['nav.contact']
+    };
+    Object.keys(navMap).forEach((href) => {
+        const links = document.querySelectorAll(`a.nav-link[href="${href}"], .footer-links a[href="${href}"]`);
+        links.forEach((el) => {
+            if (navMap[href]) el.textContent = navMap[href];
+        });
+    });
+
+    const greeting = document.querySelector('.greeting');
+    if (greeting) greeting.textContent = dict['hero.greeting'];
+
+    const heroDescription = document.querySelector('.hero-description');
+    if (heroDescription) heroDescription.textContent = dict['hero.description'];
+
+    const heroBtns = document.querySelectorAll('.hero-buttons a');
+    if (heroBtns[0]) heroBtns[0].lastChild.textContent = ` ${dict['hero.viewWork']}`;
+    if (heroBtns[1]) heroBtns[1].lastChild.textContent = ` ${dict['hero.getInTouch']}`;
+    if (heroBtns[2]) heroBtns[2].lastChild.textContent = ` ${dict['hero.downloadCv']}`;
+
+    const contactTitle = document.querySelector('#contact .section-title');
+    if (contactTitle) contactTitle.textContent = dict['contact.title'];
+
+    const contactDescription = document.querySelector('.contact-description');
+    if (contactDescription) contactDescription.textContent = dict['contact.description'];
+
+    const nameLabel = document.querySelector('label[for="name"]');
+    const emailLabel = document.querySelector('label[for="email"]');
+    const messageLabel = document.querySelector('label[for="message"]');
+    if (nameLabel) nameLabel.textContent = dict['contact.form.name'];
+    if (emailLabel) emailLabel.textContent = dict['contact.form.email'];
+    if (messageLabel) messageLabel.textContent = dict['contact.form.message'];
+
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    if (nameInput) nameInput.placeholder = dict['contact.form.namePlaceholder'];
+    if (emailInput) emailInput.placeholder = dict['contact.form.emailPlaceholder'];
+    if (messageInput) messageInput.placeholder = dict['contact.form.messagePlaceholder'];
+
+    if (langToggle) {
+        langToggle.textContent = lang.toUpperCase();
+    }
+
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+}
+
+if (langToggle) {
+    langToggle.addEventListener('click', () => {
+        const next = currentLang === 'en' ? 'fr' : 'en';
+        applyLanguage(next);
+    });
+}
+
+applyLanguage(currentLang);
+
 // Typing Animation
 const typingText = document.getElementById('typingText');
-const phrases = [
-    'Problem Solver',
-    'Full Stack Developer',
-    'System Architect',
-    'Technical Consultant'
-];
+const typingPhrases = {
+    en: ['Problem Solver', 'Full Stack Developer', 'System Architect', 'Technical Consultant'],
+    fr: ['Resolutif', 'Developpeur Full Stack', 'Architecte Systeme', 'Consultant Technique']
+};
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
 function typeText() {
+    const phrases = typingPhrases[currentLang] || typingPhrases.en;
     const currentPhrase = phrases[phraseIndex];
 
     if (isDeleting) {
@@ -303,20 +557,26 @@ if (contactForm) {
 
             if (response.ok) {
                 showToast({
-                    title: 'Message envoyé',
-                    message: 'Merci ! Ton message a bien été transmis à Jonas.'
+                    title: currentLang === 'fr' ? 'Message envoye' : 'Message sent',
+                    message: currentLang === 'fr'
+                        ? 'Merci ! Ton message a bien ete transmis a Jonas.'
+                        : 'Thanks! Your message has been sent to Jonas.'
                 });
                 contactForm.reset();
             } else {
                 showToast({
-                    title: "Envoi impossible",
-                    message: "Une erreur est survenue. Tu peux aussi écrire directement à : jmakeke6@mail.com"
+                    title: currentLang === 'fr' ? 'Envoi impossible' : 'Sending failed',
+                    message: currentLang === 'fr'
+                        ? 'Une erreur est survenue. Vous pouvez ecrire directement a : jmakeke6@mail.com'
+                        : 'An error occurred. You can also write directly to: jmakeke6@mail.com'
                 });
             }
         } catch (error) {
             showToast({
-                title: "Connexion échouée",
-                message: "Impossible de contacter le serveur. Écris directement à : jmakeke6@mail.com"
+                title: currentLang === 'fr' ? 'Connexion echouee' : 'Connection failed',
+                message: currentLang === 'fr'
+                    ? 'Impossible de contacter le serveur. Ecrivez directement a : jmakeke6@mail.com'
+                    : 'Unable to contact the server. Write directly to: jmakeke6@mail.com'
             });
         }
     });
@@ -392,7 +652,7 @@ if (typeof debouncedUpdateActiveNav === 'undefined') {
 }
 
 // Carousel Gallery
-(function () {
+(function() {
     'use strict';
 
     const carouselTrack = document.getElementById('carouselTrack');
@@ -527,14 +787,14 @@ if (typeof debouncedUpdateActiveNav === 'undefined') {
 })();
 
 // CV Download Functionality - Simple enhancement (doesn't block natural behavior)
-(function () {
+(function() {
     'use strict';
 
     const downloadCVBtn = document.getElementById('downloadCV');
 
     if (downloadCVBtn) {
         // Only enhance, don't prevent default behavior
-        downloadCVBtn.addEventListener('click', function (e) {
+        downloadCVBtn.addEventListener('click', function(e) {
             // Let the browser handle the download naturally first
             // The download attribute should work
 
