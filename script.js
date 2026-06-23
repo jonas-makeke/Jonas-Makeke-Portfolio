@@ -155,6 +155,27 @@ const translations = {
         'about.p1': 'I am a Junior Web3 Developer passionate about blockchain and decentralized technologies. I specialize in transforming complex Web3 concepts into practical, scalable, and accessible solutions. My approach combines analytical thinking, technical experimentation, and continuous learning to build systems that are both functional and impactful.',
         'about.p2': 'Each project begins with understanding the underlying blockchain logic and user needs, then designing decentralized applications that are secure, maintainable, and community-oriented. I focus on writing clean, structured code while improving my expertise in smart contracts, front-end integration, and Web3 architecture.',
         'about.p3': 'Beyond development, I actively create educational content to simplify blockchain technologies and contribute to community growth and adoption.',
+        'about.rural.title': 'Rural Development & Agronomy',
+        'about.rural.text': 'As a Rural Development Technician and Agronomist, I am passionate about sustainable solutions that improve living conditions in rural communities. My experience allows me to contribute to agricultural project management, community development, and the promotion of innovative farming practices. I combine my agronomy skills with my interest in digital technologies to support inclusive and sustainable development.',
+        'about.rural.more': 'View details',
+        'about.rural.modalTitle': 'Rural Development & Agronomy',
+        'about.rural.moreIntro': 'This space can include additional information:',
+        'about.rural.photos': 'Photos',
+        'about.rural.experiences': 'Experiences',
+        'about.rural.diplomas': 'Diplomas',
+        'about.rural.other': 'Other achievements',
+        'about.rural.photoCaption1': 'Tending seedlings in the nursery',
+        'about.rural.photoCaption2': 'Nursery with seedlings in grow bags',
+        'about.rural.photoCaption3': 'Coffee plant inspection and pruning',
+        'about.rural.photoCaption4': 'Coffee cultivation and maintenance',
+        'about.rural.exp1': 'Support for local agricultural project management',
+        'about.rural.exp2': 'Technical supervision of producers and cooperatives',
+        'about.rural.exp3': 'Promotion of sustainable and resilient farming practices',
+        'about.rural.diploma1': 'Diploma in Rural Development and Agronomy (PDF)',
+        'about.rural.diploma2': 'Detailed CV and professional path (PDF)',
+        'about.rural.other1': 'Design of community awareness approaches',
+        'about.rural.other2': 'Monitoring social and agricultural impact indicators',
+        'about.rural.other3': 'Progressive integration of digital tools into field practices',
         'about.stat.projectsSolved': 'Projects Solved',
         'about.stat.yearsExperience': 'Years Experience',
         'about.stat.successRate': 'Success Rate',
@@ -239,6 +260,27 @@ const translations = {
         'about.p1': "Je suis un developpeur Web3 junior passionne par la blockchain et les technologies decentralisees. Je transforme des concepts Web3 complexes en solutions pratiques, evolutives et accessibles. Mon approche combine une pensee analytique, l'experimentation technique et l'apprentissage continu pour construire des systemes a la fois fonctionnels et porteurs de valeur.",
         'about.p2': "Chaque projet commence par la comprehension de la logique blockchain sous-jacente et des besoins utilisateurs, puis par la conception d'applications decentralisees securisees, maintenables et orientees community. Je m'efforce d'ecrire du code propre et structure tout en developpant mon expertise dans les smart contracts, l'integration front-end et l'architecture Web3.",
         'about.p3': "Au-dela du developpement, je cree activement du contenu educatif pour simplifier les technologies blockchain et contribuer a la croissance et a l'adoption de la communaute.",
+        'about.rural.title': 'Developpement rural et agronomie',
+        'about.rural.text': "Technicien de Developpement Rural et Agronome, je suis passionne par les solutions durables qui ameliorent les conditions de vie des communautes rurales. Mon experience me permet de contribuer a la gestion des projets agricoles, au developpement communautaire et a la promotion de pratiques agricoles innovantes. J'allie mes competences en agronomie a mon interet pour les technologies numeriques afin de soutenir un developpement inclusif et durable.",
+        'about.rural.more': 'Voir plus',
+        'about.rural.modalTitle': 'Developpement rural et agronomie',
+        'about.rural.moreIntro': 'Cet espace peut accueillir des informations supplementaires :',
+        'about.rural.photos': 'Photos',
+        'about.rural.experiences': 'Experiences',
+        'about.rural.diplomas': 'Diplomes',
+        'about.rural.other': 'Autres realisations',
+        'about.rural.photoCaption1': 'Entretien des plants en pepiniere',
+        'about.rural.photoCaption2': 'Pepiniere avec plants en sachets',
+        'about.rural.photoCaption3': 'Inspection et taille des plants de cafe',
+        'about.rural.photoCaption4': 'Culture et entretien du cafeier',
+        'about.rural.exp1': 'Appui a la gestion de projets agricoles locaux',
+        'about.rural.exp2': 'Encadrement technique de producteurs et cooperatives',
+        'about.rural.exp3': 'Promotion de pratiques durables et resilientes',
+        'about.rural.diploma1': 'Diplome en Developpement Rural et Agronomie (PDF)',
+        'about.rural.diploma2': 'CV detaille et parcours professionnel (PDF)',
+        'about.rural.other1': 'Conception d approches de sensibilisation communautaire',
+        'about.rural.other2': 'Suivi d indicateurs d impact social et agricole',
+        'about.rural.other3': 'Integration progressive des outils numeriques dans les pratiques terrain',
         'about.stat.projectsSolved': 'Projets resolus',
         'about.stat.yearsExperience': "Annees d'experience",
         'about.stat.successRate': 'Taux de reussite',
@@ -369,6 +411,74 @@ if (langToggle) {
 }
 
 applyLanguage(currentLang);
+
+// About modal (Rural Development & Agronomy)
+const aboutRuralModal = document.getElementById('aboutRuralModal');
+const openRuralModalBtn = document.getElementById('openRuralModal');
+const closeRuralModalBtn = document.getElementById('closeRuralModal');
+const aboutRuralModalPanel = aboutRuralModal ? aboutRuralModal.querySelector('.about-modal') : null;
+let lastFocusedElement = null;
+
+function openAboutRuralModal() {
+    if (!aboutRuralModal) return;
+    lastFocusedElement = document.activeElement;
+    aboutRuralModal.classList.add('is-open');
+    aboutRuralModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (closeRuralModalBtn) closeRuralModalBtn.focus();
+}
+
+function closeAboutRuralModal() {
+    if (!aboutRuralModal) return;
+    aboutRuralModal.classList.remove('is-open');
+    aboutRuralModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+    }
+}
+
+if (openRuralModalBtn) {
+    openRuralModalBtn.addEventListener('click', openAboutRuralModal);
+}
+
+if (closeRuralModalBtn) {
+    closeRuralModalBtn.addEventListener('click', closeAboutRuralModal);
+}
+
+if (aboutRuralModal) {
+    aboutRuralModal.addEventListener('click', (e) => {
+        if (e.target === aboutRuralModal) {
+            closeAboutRuralModal();
+        }
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if (!aboutRuralModal || !aboutRuralModal.classList.contains('is-open')) return;
+
+    if (e.key === 'Escape') {
+        closeAboutRuralModal();
+        return;
+    }
+
+    if (e.key === 'Tab' && aboutRuralModalPanel) {
+        const focusables = aboutRuralModalPanel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+        if (!focusables.length) return;
+
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+
+        if (e.shiftKey && active === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && active === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    }
+});
 
 // Typing Animation
 const typingText = document.getElementById('typingText');

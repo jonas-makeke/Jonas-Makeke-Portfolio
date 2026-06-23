@@ -129,20 +129,32 @@
             <h2 class="section-title" data-i18n="about.title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p data-i18n="about.p1">
-                        I am a Junior Web3 Developer passionate about blockchain and decentralized technologies. 
-                        I specialize in transforming complex Web3 concepts into practical, scalable, and accessible solutions. 
-                        My approach combines analytical thinking, technical experimentation, and continuous learning to build systems 
-                        that are both functional and impactful.
-                    </p>
-                    <p data-i18n="about.p2">
-                        Each project begins with understanding the underlying blockchain logic and user needs,
-                        then designing decentralized applications that are secure, maintainable, and community-oriented. 
-                        I focus on writing clean, structured code while improving my expertise in smart contracts, front-end integration, and Web3 architecture.
-                    </p>
-                    <p data-i18n="about.p3">
-                        Beyond development, I actively create educational content to simplify blockchain technologies and contribute to community growth and adoption.
-                    </p>
+                    <div class="about-block">
+                        <p data-i18n="about.p1">
+                            I am a Junior Web3 Developer passionate about blockchain and decentralized technologies. 
+                            I specialize in transforming complex Web3 concepts into practical, scalable, and accessible solutions. 
+                            My approach combines analytical thinking, technical experimentation, and continuous learning to build systems 
+                            that are both functional and impactful.
+                        </p>
+                        <p data-i18n="about.p2">
+                            Each project begins with understanding the underlying blockchain logic and user needs,
+                            then designing decentralized applications that are secure, maintainable, and community-oriented. 
+                            I focus on writing clean, structured code while improving my expertise in smart contracts, front-end integration, and Web3 architecture.
+                        </p>
+                        <p data-i18n="about.p3">
+                            Beyond development, I actively create educational content to simplify blockchain technologies and contribute to community growth and adoption.
+                        </p>
+                    </div>
+
+                    <div class="about-block about-rural-block">
+                        <h3 class="about-block-title" data-i18n="about.rural.title">Rural Development & Agronomy</h3>
+                        <p data-i18n="about.rural.text">
+                            Technicien de Développement Rural et Agronome, je suis passionné par les solutions durables qui améliorent les conditions de vie des communautés rurales. Mon expérience me permet de contribuer à la gestion des projets agricoles, au développement communautaire et à la promotion de pratiques agricoles innovantes. J’allie mes compétences en agronomie à mon intérêt pour les technologies numériques afin de soutenir un développement inclusif et durable.
+                        </p>
+                        <button type="button" id="openRuralModal" class="about-more-btn">
+                            <span data-i18n="about.rural.more">Voir plus</span>
+                        </button>
+                    </div>
                     <div class="about-stats">
                         <div class="stat-item">
                             <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -179,6 +191,68 @@
             </div>
         </div>
     </section>
+
+    <div class="about-modal-overlay" id="aboutRuralModal" aria-hidden="true">
+        <div class="about-modal" role="dialog" aria-modal="true" aria-labelledby="aboutRuralModalTitle">
+            <button type="button" class="about-modal-close" id="closeRuralModal" aria-label="Close">×</button>
+            <h3 class="about-modal-title" id="aboutRuralModalTitle" data-i18n="about.rural.modalTitle">Rural Development & Agronomy</h3>
+            <p class="about-modal-intro" data-i18n="about.rural.moreIntro">Cet espace peut accueillir des informations supplémentaires :</p>
+
+            <div class="about-extra-grid">
+                <section class="about-extra-card">
+                    <h4 class="about-extra-title" data-i18n="about.rural.photos">Photos</h4>
+                    <div class="about-photo-grid">
+                        <figure class="about-photo-item">
+                            <img src="ph1.jpg" alt="Entretien des plants en pepiniere" class="about-photo-img" loading="lazy">
+                            <figcaption data-i18n="about.rural.photoCaption1">Entretien des plants en pepiniere</figcaption>
+                        </figure>
+                        <figure class="about-photo-item">
+                            <img src="ph2.jpg" alt="Pepiniere avec plants en sachets" class="about-photo-img" loading="lazy">
+                            <figcaption data-i18n="about.rural.photoCaption2">Pepiniere avec plants en sachets</figcaption>
+                        </figure>
+                        <figure class="about-photo-item">
+                            <img src="ph3.jpg" alt="Inspection et taille des plants de cafe" class="about-photo-img" loading="lazy">
+                            <figcaption data-i18n="about.rural.photoCaption3">Inspection et taille des plants de cafe</figcaption>
+                        </figure>
+                        <figure class="about-photo-item">
+                            <img src="ph4.jpg" alt="Culture et entretien du cafeier" class="about-photo-img" loading="lazy">
+                            <figcaption data-i18n="about.rural.photoCaption4">Culture et entretien du cafeier</figcaption>
+                        </figure>
+                    </div>
+                </section>
+
+                <section class="about-extra-card">
+                    <h4 class="about-extra-title" data-i18n="about.rural.experiences">Experiences</h4>
+                    <ul class="about-more-list">
+                        <li data-i18n="about.rural.exp1">Appui a la gestion de projets agricoles locaux</li>
+                        <li data-i18n="about.rural.exp2">Encadrement technique de producteurs et cooperatives</li>
+                        <li data-i18n="about.rural.exp3">Promotion de pratiques durables et resilientes</li>
+                    </ul>
+                </section>
+
+                <section class="about-extra-card">
+                    <h4 class="about-extra-title" data-i18n="about.rural.diplomas">Diplomes</h4>
+                    <div class="about-diploma-links">
+                        <a href="assets/JonasMakekeCV.pdf" class="about-diploma-link" target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="about.rural.diploma1">Diplome en Developpement Rural et Agronomie (PDF)</span>
+                        </a>
+                        <a href="Jonas-Makeke-CV.pdf" class="about-diploma-link" target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="about.rural.diploma2">CV detaille et parcours professionnel (PDF)</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="about-extra-card">
+                    <h4 class="about-extra-title" data-i18n="about.rural.other">Autres realisations</h4>
+                    <ul class="about-more-list">
+                        <li data-i18n="about.rural.other1">Conception d approches de sensibilisation communautaire</li>
+                        <li data-i18n="about.rural.other2">Suivi d indicateurs d impact social et agricole</li>
+                        <li data-i18n="about.rural.other3">Integration progressive des outils numeriques dans les pratiques terrain</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
