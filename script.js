@@ -65,13 +65,104 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
 });
 
+function closeMobileNav() {
+    navMenu.classList.remove('active');
+    hamburger.classList.remove('active');
+}
+
 // Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+document.querySelectorAll('.nav-link, .nav-dropdown-link').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+});
+
+// Gallery & Ecosystems: visible only when opened from About submenu
+const gallerySection = document.getElementById('gallery');
+const ecosystemsSection = document.getElementById('ecosystems');
+const galleryNavLinks = document.querySelectorAll('a[href="#gallery"]');
+const ecosystemsNavLinks = document.querySelectorAll('a[href="#ecosystems"]');
+
+function showGallery() {
+    if (!gallerySection) return;
+    gallerySection.classList.remove('is-hidden');
+    gallerySection.setAttribute('aria-hidden', 'false');
+}
+
+function hideGallery() {
+    if (!gallerySection) return;
+    gallerySection.classList.add('is-hidden');
+    gallerySection.setAttribute('aria-hidden', 'true');
+}
+
+function showEcosystems() {
+    if (!ecosystemsSection) return;
+    ecosystemsSection.classList.remove('is-hidden');
+    ecosystemsSection.setAttribute('aria-hidden', 'false');
+}
+
+function hideEcosystems() {
+    if (!ecosystemsSection) return;
+    ecosystemsSection.classList.add('is-hidden');
+    ecosystemsSection.setAttribute('aria-hidden', 'true');
+}
+
+function hideAboutSubsections() {
+    hideGallery();
+    hideEcosystems();
+}
+
+function scrollToElement(el) {
+    if (!el) return;
+    const offsetTop = el.offsetTop - 80;
+    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+}
+
+function openGalleryFromNav() {
+    hideEcosystems();
+    showGallery();
+    requestAnimationFrame(() => scrollToElement(gallerySection));
+}
+
+function openEcosystemsFromNav() {
+    hideGallery();
+    showEcosystems();
+    requestAnimationFrame(() => scrollToElement(ecosystemsSection));
+}
+
+galleryNavLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        openGalleryFromNav();
+        if (history.replaceState) {
+            history.replaceState(null, '', '#gallery');
+        } else {
+            window.location.hash = 'gallery';
+        }
     });
 });
+
+ecosystemsNavLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        openEcosystemsFromNav();
+        if (history.replaceState) {
+            history.replaceState(null, '', '#ecosystems');
+        } else {
+            window.location.hash = 'ecosystems';
+        }
+    });
+});
+
+document.querySelectorAll('a[href="#about"]').forEach((link) => {
+    link.addEventListener('click', hideAboutSubsections);
+});
+
+if (window.location.hash === '#gallery') {
+    openGalleryFromNav();
+} else if (window.location.hash === '#ecosystems') {
+    openEcosystemsFromNav();
+} else {
+    hideAboutSubsections();
+}
 
 // Active Navigation Link
 const sections = document.querySelectorAll('section');
@@ -103,15 +194,25 @@ updateActiveNav();
 // Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#gallery' || href === '#ecosystems') return;
+
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+        if (href !== '#about') {
+            hideAboutSubsections();
         }
+        const target = document.querySelector(href);
+        scrollToElement(target);
+    });
+});
+
+// Mobile: toggle About submenu
+document.querySelectorAll('.nav-dropdown-toggle').forEach((toggle) => {
+    toggle.addEventListener('click', (e) => {
+        if (window.innerWidth > 768) return;
+        e.preventDefault();
+        const item = toggle.closest('.nav-item.has-dropdown');
+        if (item) item.classList.toggle('open');
     });
 });
 
@@ -124,6 +225,8 @@ const translations = {
     en: {
         'nav.home': 'Home',
         'nav.about': 'About',
+        'nav.gallery': 'Gallery',
+        'nav.ecosystems': 'Blockchain ecosystems',
         'nav.methodology': 'Methodology',
         'nav.projects': 'Projects',
         'nav.skills': 'Skills',
@@ -181,9 +284,9 @@ const translations = {
         'about.stat.successRate': 'Success Rate',
 
         'projects.title': 'Featured Projects',
-        'projects.p1.placeholder': 'Project 1',
-        'projects.p1.title': 'ProofChain',
-        'projects.p1.description': 'A brief description of the project, highlighting key features and technologies used.',
+        'projects.p1.placeholder': 'ADD',
+        'projects.p1.title': 'ADD',
+        'projects.p1.description': 'Website for AGRONOMISTS FOR SUSTAINABLE DEVELOPMENT (ADD): a community initiative for sustainable agriculture, youth farmer training, and rural community resilience in the DRC.',
         'projects.p1.demo': 'Live Demo',
         'projects.p2.placeholder': 'Project 2',
         'projects.p2.title': 'ProofChain',
@@ -224,11 +327,29 @@ const translations = {
         'articles.a4.excerpt': 'Video content where I explain Web3 concepts, blockchain use cases and development tips in an accessible and visual way.',
         'articles.a4.linkLabel': 'Watch on YouTube',
 
-        'footer.copyright': '© 2026 Jonas Makeke. All rights reserved.'
+        'footer.copyright': '© 2026 Jonas Makeke. All rights reserved.',
+
+        'gallery.title': 'Gallery',
+        'gallery.description': 'A collection of moments and projects captured along the way.',
+
+        'ecosystems.title': 'Blockchain ecosystems',
+        'ecosystems.description': 'The Web3 networks and communities I explore, document, and support through projects and educational content.',
+        'ecosystems.cardano.text': 'Project Catalyst, GomaHub, ProofChain, and Haskell/Plutus learning for decentralized academic and community solutions.',
+        'ecosystems.safrochain.text': 'Blockchain focused on emerging markets: tutorials and guides to join the ecosystem and understand its impact.',
+        'ecosystems.polkadot.text': 'Web3 interoperability: articles on Polkadot as an inter-blockchain highway connecting ecosystems.',
+        'ecosystems.midnight.badge': 'Ambassador',
+        'ecosystems.midnight.text': 'Midnight Ambassador: privacy and selective disclosure, reflections on the future of privacy in Web3, and real-world use cases.',
+        'ecosystems.gomahub.text': 'Cardano community in Goma: training, stake pool, and blockchain awareness for local developers.',
+        'ecosystems.link.github': 'GitHub',
+        'ecosystems.link.medium': 'Medium',
+        'ecosystems.link.linkedin': 'LinkedIn',
+        'ecosystems.socialIntro': 'To learn more, follow me on social media:'
     },
     fr: {
         'nav.home': 'Accueil',
         'nav.about': 'A Propos',
+        'nav.gallery': 'Galerie',
+        'nav.ecosystems': 'Ecosystemes blockchain',
         'nav.methodology': 'Methodologie',
         'nav.projects': 'Projets',
         'nav.skills': 'Competences',
@@ -286,9 +407,9 @@ const translations = {
         'about.stat.successRate': 'Taux de reussite',
 
         'projects.title': 'Projets en vedette',
-        'projects.p1.placeholder': 'Projet 1',
-        'projects.p1.title': 'ProofChain',
-        'projects.p1.description': 'Une breve description du projet, mettant en avant les fonctionnalites cles et les technologies utilisees.',
+        'projects.p1.placeholder': 'ADD',
+        'projects.p1.title': 'ADD',
+        'projects.p1.description': "Site web d'AGRONOME POUR LE DEVELOPPEMENT DURABLE (ADD) : initiative communautaire pour une agriculture durable, la formation des jeunes agriculteurs et la resilience des communautes rurales en RDC.",
         'projects.p1.demo': 'Demo en direct',
         'projects.p2.placeholder': 'Projet 2',
         'projects.p2.title': 'ProofChain',
@@ -329,7 +450,22 @@ const translations = {
         'articles.a4.excerpt': 'Du contenu video ou j explique les concepts Web3, les cas d usage de la blockchain et des conseils de developpement de maniere accessible et visuelle.',
         'articles.a4.linkLabel': 'Regarder sur YouTube',
 
-        'footer.copyright': '© 2026 Jonas Makeke. Tous droits reserves.'
+        'footer.copyright': '© 2026 Jonas Makeke. Tous droits reserves.',
+
+        'gallery.title': 'Galerie',
+        'gallery.description': 'Une selection de moments et de projets captures en chemin.',
+
+        'ecosystems.title': 'Ecosystemes blockchain',
+        'ecosystems.description': 'Les reseaux et communautes Web3 que j explore, documente et soutiens a travers mes projets et mon contenu educatif.',
+        'ecosystems.cardano.text': 'Project Catalyst, GomaHub, ProofChain et apprentissage Haskell/Plutus pour des solutions academiques et communautaires decentralisees.',
+        'ecosystems.safrochain.text': 'Blockchain orientee marches emergents : tutoriels et guides pour rejoindre l ecosysteme et comprendre son impact.',
+        'ecosystems.polkadot.text': 'Interoperabilite Web3 : articles sur Polkadot comme autoroute inter-blockchain reliant les ecosystemes.',
+        'ecosystems.midnight.text': 'Confidentialite et divulgation selective : reflexions sur l avenir de la privacy dans Web3 et cas d usage concrets.',
+        'ecosystems.gomahub.text': 'Communaute Cardano a Goma : formation, stake pool et sensibilisation blockchain pour les developpeurs locaux.',
+        'ecosystems.link.github': 'GitHub',
+        'ecosystems.link.medium': 'Medium',
+        'ecosystems.link.linkedin': 'LinkedIn',
+        'ecosystems.socialIntro': 'Pour en savoir plus, consultez mes reseaux sociaux :'
     }
 };
 

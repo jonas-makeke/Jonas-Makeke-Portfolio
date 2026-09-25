@@ -104,8 +104,19 @@ body {
     transition: var(--transition);
 }
 
-.nav-brand-icon svg {
+.nav-brand-icon {
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+.nav-brand-avatar {
     display: block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .nav-brand a:hover {
@@ -153,6 +164,67 @@ body {
 .nav-link:hover::after,
 .nav-link.active::after {
     width: 100%;
+}
+
+.nav-item.has-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.nav-chevron {
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.nav-item.has-dropdown:hover .nav-chevron,
+.nav-item.has-dropdown.open .nav-chevron {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 0;
+    min-width: 180px;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    background: #ffffff;
+    border-radius: 0 0 0.5rem 0.5rem;
+    border-top: 3px solid var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 1000;
+}
+
+.nav-item.has-dropdown:hover .nav-dropdown,
+.nav-item.has-dropdown.open .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown-link {
+    display: block;
+    padding: 0.7rem 1.15rem;
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-dropdown-link:hover {
+    background-color: rgba(37, 99, 235, 0.08);
+    color: var(--primary-color);
 }
 
 .theme-toggle {
@@ -889,6 +961,21 @@ section {
     color: white;
     font-size: 1.5rem;
     font-weight: 600;
+}
+
+.project-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.tag.tech-html {
+    background-color: rgba(227, 76, 38, 0.15);
+    color: #e34c26;
+    border: 1px solid rgba(227, 76, 38, 0.3);
 }
 
 .project-content {
@@ -1826,6 +1913,137 @@ section {
     overflow: hidden;
 }
 
+.gallery.is-hidden,
+.ecosystems.is-hidden {
+    display: none;
+}
+
+.ecosystems {
+    background-color: var(--bg-secondary);
+    padding: 5rem 0;
+}
+
+.ecosystems-description {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.ecosystems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.ecosystem-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.ecosystem-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(37, 99, 235, 0.35);
+}
+
+.ecosystem-name {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.ecosystem-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+}
+
+.ecosystem-text {
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.ecosystem-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.ecosystem-links a {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    transition: var(--transition);
+}
+
+.ecosystem-links a:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.ecosystems-social-cta {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.ecosystems-social-cta p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.ecosystems-social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.ecosystems-social-links a {
+    color: var(--navbar-text);
+    background: var(--navbar-bg);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    transition: var(--transition);
+}
+
+.ecosystems-social-links a:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
 .gallery-description {
     text-align: center;
     color: var(--text-secondary);
@@ -2038,6 +2256,43 @@ section {
 
     .nav-menu.active {
         left: 0;
+    }
+
+    .nav-item.has-dropdown {
+        width: 100%;
+    }
+
+    .nav-dropdown-toggle {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-dropdown {
+        position: static;
+        min-width: 100%;
+        margin-top: 0.5rem;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.06);
+        border-top: 2px solid var(--primary-color);
+        border-radius: 0.35rem;
+    }
+
+    .nav-item.has-dropdown.open .nav-dropdown {
+        display: block;
+    }
+
+    .nav-dropdown-link {
+        color: var(--navbar-text);
+        text-align: center;
+    }
+
+    .nav-dropdown-link:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+        color: #fff;
     }
 
     .hero-content {
